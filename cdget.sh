@@ -29,8 +29,108 @@
 # Mon 2024-12-16 -j     java files implemented.                         Version: 00.09
 # Mon 2024-12-16 -cj	c files as starter for java apps.		        Version: 00.10
 # Mon 2024-12-16 -mf	makefile template implemented.		            Version: 00.11
-
+# Mon 2024-12-16 Changed the path to user patrik, and added output.     Version: 00.12
 # ************************************************************************************
+
+script_version="00.12"
+x=1
+language=""
+filename=""
+
+# -----------------------------
+# Parameter loop
+# -----------------------------
+for p in $@
+do
+	if [ $x -eq 1 ]; then
+		language="$p"
+	fi
+
+	if [ $x -eq 2 ]; then
+		filename=$p
+	fi
+
+	x=$(( x + 1 ))
+done
+
+# -----------------------------
+# bash files sections
+# -----------------------------
+if [ $language = "-b" ]; then
+    echo "getting: bash_template -> $filename.sh"
+	cp /Users/patrik/Development/templates/bash_template.sh $filename.sh
+fi
+
+# -----------------------------
+# c-Program section
+# -----------------------------
+if [ $language = "-c" ]; then
+    echo "getting: c_template -> $filename.c"
+	cp /Users/patrik/Development/templates/c_template.c $filename.c
+fi
+
+# -----------------------------
+# C\C++ Header section
+# -----------------------------
+if [ $language = "-h" ]; then
+    echo "getting: header_template -> $filename.h"
+	cp /Users/patrik/Development/templates/header_template.h $filename.h
+fi
+
+# -----------------------------
+# Makefile section
+# -----------------------------
+if [ $language = "-mk" ]; then
+    echo "getting: makefile_template -> $filename.makefile"
+	cp /Users/patrik/Development/templates/makefile_template.makefile $filename.makefile
+fi
+
+# -----------------------------
+# PHP section
+# -----------------------------
+if [ $language = "-php" ]; then
+    echo "getting: php_template -> $filename.php"
+	cp /Users/patrik/Development/templates/php_template.php $filename.php
+fi
+
+# -----------------------------
+# Python section
+# -----------------------------
+if [ $language = "-py" ]; then
+    echo "getting: python_template -> $filename.py"
+	cp /Users/patrik/Development/templates/python_template.py $filename.py
+fi
+
+# -----------------------------
+# Web-PHP section
+# -----------------------------
+if [ $language = "-wphp" ]; then
+    echo "getting: webphp_template -> $filename.php"
+	cp /Users/patrik/Development/templates/www-php_template.php $filename.php
+fi
+
+# -----------------------------
+# Java Class section
+# -----------------------------
+if [ $language = "-j" ]; then
+    echo "getting: java_template -> $filename.java"
+	cp /Users/patrik/Development/templates/java_template.java $filename.java
+fi
+
+# -----------------------------
+# Java starter program section
+# -----------------------------
+if [ $language = "-cj" ]; then
+    echo "getting: c_java_template -> $filename.c"
+	cp /Users/patrik/Development/templates/c_java_template.c $filename.c
+fi
+
+# -----------------------------
+# Help section
+# -----------------------------
+if [ $language = "-?" ]; then
+	display_help
+fi
 
 # ---------------------------------------------------------------------
 # display_help - displayes a helpful description alla man pages style.
@@ -38,7 +138,7 @@
 # ---------------------------------------------------------------------
 display_help () {
     echo "NAME:"
-    echo "      cdget.sh - Version: 00.11"
+    echo "      cdget.sh - Version: $script_version"
     echo " "
     echo "SYNOPSIS:"
     echo "      cdget.sh <option: -py,php,wphp,c,cpp,h,j,?> <path> <filename>"
@@ -94,98 +194,7 @@ display_help () {
     echo "      GNU GPL version 3 or later https://gnu.org/licenses/gpl.html."
     echo "      This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent"
     echo "      permitted by law."
-    
 }
-
-x=1
-language=""
-filename=""
-
-# -----------------------------
-# Parameter loop
-# -----------------------------
-for p in $@
-do
-	if [ $x -eq 1 ]; then
-		language="$p"
-	fi
-
-	if [ $x -eq 2 ]; then
-		filename=$p
-	fi
-
-	x=$(( x + 1 ))
-done
-
-# -----------------------------
-# bash files sections
-# -----------------------------
-if [ $language = "-b" ]; then
-	cp /User/patrik/Development/templates/bash_template.sh $filename.sh
-fi
-
-# -----------------------------
-# c-Program section
-# -----------------------------
-if [ $language = "-c" ]; then
-	cp /User/patrik/Development/templates/c_template.c $filename.c
-fi
-
-# -----------------------------
-# C\C++ Header section
-# -----------------------------
-if [ $language = "-h" ]; then
-	cp /User/patrik/Development/templates/header_template.h $filename.h
-fi
-
-# -----------------------------
-# Makefile section
-# -----------------------------
-if [ $language = "-mk" ]; then
-	cp /User/patrik/Development/templates/makefile_template.makefile $filename.makefile
-fi
-
-# -----------------------------
-# PHP section
-# -----------------------------
-if [ $language = "-php" ]; then
-	cp /User/patrik/Development/templates/php_template.php $filename.php
-fi
-
-# -----------------------------
-# Python section
-# -----------------------------
-if [ $language = "-py" ]; then
-	cp /User/patrik/Development/templates/python_template.py $filename.py
-fi
-
-# -----------------------------
-# Web-PHP section
-# -----------------------------
-if [ $language = "-wphp" ]; then
-	cp /User/patrik/Development/templates/www-php_template.php $filename.php
-fi
-
-# -----------------------------
-# Java Class section
-# -----------------------------
-if [ $language = "-j" ]; then
-	cp /User/patrik/Development/templates/java_template.java $filename.java
-fi
-
-# -----------------------------
-# Java starter program section
-# -----------------------------
-if [ $language = "-cj" ]; then
-	cp /User/patrik/Development/templates/c_java_template.c $filename.c
-fi
-
-# -----------------------------
-# Help section
-# -----------------------------
-if [ $language = "-?" ]; then
-	display_help
-fi
 
 # ----------------------- Depricated for now -------------------------
 
