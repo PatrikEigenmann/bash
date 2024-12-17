@@ -30,9 +30,10 @@
 # Mon 2024-12-16 -cj	c files as starter for java apps.		        Version: 00.10
 # Mon 2024-12-16 -mf	makefile template implemented.		            Version: 00.11
 # Mon 2024-12-16 Changed the path to user patrik, and added output.     Version: 00.12
+# Mon 2024-12-16 Corrected a bug: -mk was wrong it's -mf.               Version: 00.13
 # ************************************************************************************
 
-script_version="00.12"
+script_version="00.13"
 x=1
 language=""
 filename=""
@@ -80,7 +81,7 @@ fi
 # -----------------------------
 # Makefile section
 # -----------------------------
-if [ $language = "-mk" ]; then
+if [ $language = "-mf" ]; then
     echo "getting: makefile_template -> $filename.makefile"
 	cp /Users/patrik/Development/templates/makefile_template.makefile $filename.makefile
 fi
