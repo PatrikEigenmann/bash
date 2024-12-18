@@ -34,7 +34,7 @@ To get started with the scripts in this repository, follow these steps:
 - hello_world.sh -> What would the scripting world be without a "Hello bash-world!" script.
 
 ## Licencing
-All my scripts and programs falls under the GNU PL. General. See the Licence files.
+All my scripts and programs fall under the GNU PL. General. See the Licence files.
 
 ## Contact
 Patrik Eigenmann (p.eigenmann@gmx.net)
