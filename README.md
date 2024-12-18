@@ -31,5 +31,10 @@ To get started with the scripts in this repository, follow these steps:
 
 ## Scripts
 - cdget.sh -> cdget.sh means code get, copies different templates of various languages in the active folder.
-
 - hello_world.sh -> What would the scripting world be without a "Hello bash-world!" script.
+
+## Licencing
+All my scripts and programs falls under the GNU PL. General. See the Licence files.
+
+## Contact
+Patrik Eigenmann (p.eigenmann@gmx.net)
