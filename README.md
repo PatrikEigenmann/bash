@@ -23,11 +23,11 @@ This repository is a compilation of Bash scripts that I have developed to solve 
 - Easy to customize and extend
 
 ## Installation
-To get started with the scripts in this repository, follow these steps:
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/PatrikEigenmann/bash.git
-   cd bash
+To get started with the repository, cd in your project's or development folder and run this git command.
+
+```
+git clone https://github.com/PatrikEigenmann/bash.git
+```
 
 ## Scripts
 - cdget.sh -> cdget.sh means code get, copies different templates of various languages in the active folder.
