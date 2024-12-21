@@ -123,8 +123,8 @@ done
 # bash files sections
 # -----------------------------
 if [ $language = "-b" ]; then
-    echo "getting: bash_template -> $filename.sh"
-	cp /Users/patrik/Development/templates/bash_template.sh $filename.sh
+    echo "getting: bash template -> $filename.sh"
+	cp /Users/patrik/Development/templates/bash.tpl $filename.sh
 fi
 
 # -----------------------------
@@ -155,16 +155,16 @@ fi
 # PHP section
 # -----------------------------
 if [ $language = "-php" ]; then
-    echo "getting: php_template -> $filename.php"
-	cp /Users/patrik/Development/templates/php_template.php $filename.php
+    echo "getting: php template -> $filename.php"
+	cp /Users/patrik/Development/templates/php.tpl $filename.php
 fi
 
 # -----------------------------
 # Python section
 # -----------------------------
 if [ $language = "-py" ]; then
-    echo "getting: python_template -> $filename.py"
-	cp /Users/patrik/Development/templates/python_template.py $filename.py
+    echo "getting: python template -> $filename.py"
+	cp /Users/patrik/Development/templates/python.tpl $filename.py
 fi
 
 # -----------------------------
