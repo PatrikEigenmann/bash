@@ -32,6 +32,7 @@
 # Mon 2024-12-16 Changed the path to user patrik, and added output.     Version: 00.12
 # Mon 2024-12-16 Corrected a bug: -mk was wrong it's -mf.               Version: 00.13
 # Mon 2024-12-16 Corrected the call of the help file.                   Version: 00.14
+# Sat 2024-12-21 Corrected all the templates and cleaned up.            Version: 00.15
 # ************************************************************************************
 
 # ---------------------------------------------------------------------
@@ -68,12 +69,12 @@ display_help () {
     echo "      -py"
     echo "          Option -py to get a python template in the working folder."
     echo " "
-    echo "      -wphp"
-    echo "          Option -wphp to get a Website PHP template in the working folder."
-    echo " "
-    echo "      -j"
-    echo "          Option -j to get a java class template in the working folder."
-    echo " "
+#    echo "      -wphp"
+#    echo "          Option -wphp to get a Website PHP template in the working folder."
+#    echo " "
+#    echo "      -j"
+#    echo "          Option -j to get a java class template in the working folder."
+#    echo " "
     echo "      -cj"
     echo "          Option -cj to get a c program template as a starter for a java"
     echo "          app in the working folder."
@@ -98,7 +99,7 @@ display_help () {
     echo "      permitted by law."
 }
 
-script_version="00.13"
+script_version="00.15"
 x=1
 language=""
 filename=""
@@ -131,24 +132,24 @@ fi
 # c-Program section
 # -----------------------------
 if [ $language = "-c" ]; then
-    echo "getting: c_template -> $filename.c"
-	cp /Users/patrik/Development/templates/c_template.c $filename.c
+    echo "getting: c template -> $filename.c"
+	cp /Users/patrik/Development/templates/c.tpl $filename.c
 fi
 
 # -----------------------------
 # C\C++ Header section
 # -----------------------------
 if [ $language = "-h" ]; then
-    echo "getting: header_template -> $filename.h"
-	cp /Users/patrik/Development/templates/header_template.h $filename.h
+    echo "getting: header template -> $filename.h"
+	cp /Users/patrik/Development/templates/h.tpl $filename.h
 fi
 
 # -----------------------------
 # Makefile section
 # -----------------------------
 if [ $language = "-mf" ]; then
-    echo "getting: makefile_template -> $filename.makefile"
-	cp /Users/patrik/Development/templates/makefile_template.makefile $filename.makefile
+    echo "getting: makefile template -> $filename.makefile"
+	cp /Users/patrik/Development/templates/makefile.tpl $filename.makefile
 fi
 
 # -----------------------------
@@ -168,27 +169,11 @@ if [ $language = "-py" ]; then
 fi
 
 # -----------------------------
-# Web-PHP section
-# -----------------------------
-if [ $language = "-wphp" ]; then
-    echo "getting: webphp_template -> $filename.php"
-	cp /Users/patrik/Development/templates/www-php_template.php $filename.php
-fi
-
-# -----------------------------
-# Java Class section
-# -----------------------------
-if [ $language = "-j" ]; then
-    echo "getting: java_template -> $filename.java"
-	cp /Users/patrik/Development/templates/java_template.java $filename.java
-fi
-
-# -----------------------------
 # Java starter program section
 # -----------------------------
 if [ $language = "-cj" ]; then
-    echo "getting: c_java_template -> $filename.c"
-	cp /Users/patrik/Development/templates/c_java_template.c $filename.c
+    echo "getting: c java template -> $filename.c"
+	cp /Users/patrik/Development/templates/c_java.tpl $filename.c
 fi
 
 # -----------------------------
@@ -212,4 +197,20 @@ fi
 # -----------------------------
 #if [ $language = "-cpp" ]; then
 #	cp ~/development/templates/cpp_template.cpp $filename.cpp
+#fi
+
+# -----------------------------
+# Java Class section
+# -----------------------------
+#if [ $language = "-j" ]; then
+#    echo "getting: java_template -> $filename.java"
+#	cp /Users/patrik/Development/templates/java_template.java $filename.java
+#fi
+
+# -----------------------------
+# Web-PHP section
+# -----------------------------
+#if [ $language = "-wphp" ]; then
+#    echo "getting: webphp_template -> $filename.php"
+#	cp /Users/patrik/Development/templates/www-php_template.php $filename.php
 #fi
