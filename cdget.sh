@@ -33,6 +33,7 @@
 # Mon 2024-12-16 Corrected a bug: -mk was wrong it's -mf.               Version: 00.13
 # Mon 2024-12-16 Corrected the call of the help file.                   Version: 00.14
 # Sat 2024-12-21 Corrected all the templates and cleaned up.            Version: 00.15
+# Sun 2024-12-22 web php integrated again.                              Version: 00.16
 # ************************************************************************************
 
 # ---------------------------------------------------------------------
@@ -69,9 +70,9 @@ display_help () {
     echo "      -py"
     echo "          Option -py to get a python template in the working folder."
     echo " "
-#    echo "      -wphp"
-#    echo "          Option -wphp to get a Website PHP template in the working folder."
-#    echo " "
+    echo "      -wphp"
+    echo "          Option -wphp to get a Website PHP template in the working folder."
+    echo " "
 #    echo "      -j"
 #    echo "          Option -j to get a java class template in the working folder."
 #    echo " "
@@ -99,7 +100,7 @@ display_help () {
     echo "      permitted by law."
 }
 
-script_version="00.15"
+script_version="00.16"
 x=1
 language=""
 filename=""
@@ -161,6 +162,14 @@ if [ $language = "-php" ]; then
 fi
 
 # -----------------------------
+# Web-PHP section
+# -----------------------------
+if [ $language = "-wphp" ]; then
+    echo "getting: webphp template -> $filename.php"
+	cp /Users/patrik/Development/templates/www-php.tpl $filename.php
+fi
+
+# -----------------------------
 # Python section
 # -----------------------------
 if [ $language = "-py" ]; then
@@ -205,12 +214,4 @@ fi
 #if [ $language = "-j" ]; then
 #    echo "getting: java_template -> $filename.java"
 #	cp /Users/patrik/Development/templates/java_template.java $filename.java
-#fi
-
-# -----------------------------
-# Web-PHP section
-# -----------------------------
-#if [ $language = "-wphp" ]; then
-#    echo "getting: webphp_template -> $filename.php"
-#	cp /Users/patrik/Development/templates/www-php_template.php $filename.php
 #fi
