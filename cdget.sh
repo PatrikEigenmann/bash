@@ -14,8 +14,9 @@
 # cdget.sh <option: -cj>	<filename>		            {for c starter for java programm}
 # cdget.sh <option: -?>     {call the help}
 # ------------------------------------------------------------------------------------
-# Author:		Patrik Eigenmann
-# eMail:		p.eigenmann@gmx.net
+# Author:   Patrik Eigenmann
+# eMail:    p.eigenmann@gmx.net
+# GitHub:   www.github.com/PatrikEigenmann/bash
 # ------------------------------------------------------------------------------------
 # Change Log:
 # Tue 2023-06-13 File created.                                          Version: 00.01
