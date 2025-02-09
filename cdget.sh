@@ -74,9 +74,9 @@ display_help () {
     echo "      -wphp"
     echo "          Option -wphp to get a Website PHP template in the working folder."
     echo " "
-#    echo "      -j"
-#    echo "          Option -j to get a java class template in the working folder."
-#    echo " "
+    echo "      -j"
+    echo "          Option -j to get a java class template in the working folder."
+    echo " "
     echo "      -cj"
     echo "          Option -cj to get a c program template as a starter for a java"
     echo "          app in the working folder."
@@ -187,6 +187,14 @@ if [ $language = "-cj" ]; then
 fi
 
 # -----------------------------
+# Java Class section
+# -----------------------------
+if [ $language = "-j" ]; then
+    echo "getting: java_template -> $filename.java"
+	cp /Users/patrik/Development/templates/java.tpl $filename.java
+fi
+
+# -----------------------------
 # Help section
 # -----------------------------
 if [ $language = "-?" ]|| [ "$language" = "--help" ]; then
@@ -207,12 +215,4 @@ fi
 # -----------------------------
 #if [ $language = "-cpp" ]; then
 #	cp ~/development/templates/cpp_template.cpp $filename.cpp
-#fi
-
-# -----------------------------
-# Java Class section
-# -----------------------------
-#if [ $language = "-j" ]; then
-#    echo "getting: java_template -> $filename.java"
-#	cp /Users/patrik/Development/templates/java_template.java $filename.java
 #fi
