@@ -2,6 +2,7 @@
 
 # Start building the classpath
 CLASSPATH="."
+#CLASSPATH="$CLASSPATH:/Users/patrik/Development/Java/Samael"
 CLASSPATH="$CLASSPATH:/Users/patrik/Development/Java/extLib/javax.activation_1.2.2.v20221203-1659.jar"
 CLASSPATH="$CLASSPATH:/Users/patrik/Development/Java/extLib/javax.mail.jar"
 CLASSPATH="$CLASSPATH:/Users/patrik/Development/Java/extLib/sqlite-jdbc-3.49.1.0.jar"
