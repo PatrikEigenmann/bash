@@ -81,6 +81,10 @@ display_help () {
     echo "          Option -cj to get a c program template as a starter for a java"
     echo "          app in the working folder."
     echo " "
+    echo "      -bj"
+    echo "          Option -bj to get a bash script template as a starter for a java"
+    echo "          app in the working folder."
+    echo " "
     echo "      \"-?\" or --help"
     echo "          Option -? displays this help file. With calling the help file,"
     echo "          no other parameter are required!"
@@ -184,6 +188,14 @@ fi
 if [ $language = "-cj" ]; then
     echo "getting: c java template -> $filename.c"
 	cp /Users/patrik/Development/templates/c_java.tpl $filename.c
+fi
+
+# -----------------------------
+# Java starter script section
+# -----------------------------
+if [ $language = "-bj" ]; then
+    echo "getting: bash java template -> $filename.sh"
+	cp /Users/patrik/Development/templates/sh_java.tpl $filename.sh
 fi
 
 # -----------------------------
