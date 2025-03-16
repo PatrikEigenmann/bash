@@ -85,6 +85,10 @@ display_help () {
     echo "          Option -bj to get a bash script template as a starter for a java"
     echo "          app in the working folder."
     echo " "
+    echo "      -clsp"
+    echo "          Option -clsp to get a classpath template as a library list for"
+    echo "          Java app in the working folder."
+    echo " "
     echo "      \"-?\" or --help"
     echo "          Option -? displays this help file. With calling the help file,"
     echo "          no other parameter are required!"
@@ -205,6 +209,15 @@ if [ $language = "-j" ]; then
     echo "getting: java_template -> $filename.java"
 	cp /Users/patrik/Development/templates/java.tpl $filename.java
 fi
+
+# -----------------------------
+# Classpath section
+# -----------------------------
+if [ $language = "-clsp" ]; then
+    echo "getting: classpath template -> classpath.txt"
+    cp /Users/patrik/Development/templates/classpath.tpl classpath.txt
+fi
+
 
 # -----------------------------
 # Help section
