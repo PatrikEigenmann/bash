@@ -35,6 +35,8 @@
 # Mon 2024-12-16 Corrected the call of the help file.                   Version: 00.14
 # Sat 2024-12-21 Corrected all the templates and cleaned up.            Version: 00.15
 # Sun 2024-12-22 web php integrated again.                              Version: 00.16
+# Sun 2025-03-17 Added -clsp classpath template for java.               Version: 00.17
+# Sun 2025-03-17 Added -bj as a bash java starter .                     Version: 00.18
 # ************************************************************************************
 
 # ---------------------------------------------------------------------
