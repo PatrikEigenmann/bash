@@ -37,6 +37,7 @@
 # Sun 2024-12-22 web php integrated again.                              Version: 00.16
 # Sun 2025-03-17 Added -clsp classpath template for java.               Version: 00.17
 # Sun 2025-03-17 Added -bj as a bash java starter .                     Version: 00.18
+# Sun 2025-03-17 Added placeholder replacement functionality.           Version: 00.19
 # ************************************************************************************
 
 # ---------------------------------------------------------------------
@@ -111,7 +112,36 @@ display_help () {
     echo "      permitted by law."
 }
 
-script_version="00.16"
+# ---------------------------------------------------------------------
+# replace_placeholders - replaces placeholders in a template file with
+# actual values and writes the result to an output file.
+# @param template_file The path to the template file.
+# @param project_name The name of the project or filename to replace in the template.
+# @param extension The file extension for the output file.
+#
+# The placeholders are:
+# {project_name}    - will be replaced with the project name.
+# {file_name}       - will be replaced with the file name.
+# DAY YYYY-MM-DD    - will be replaced with the current date in the
+#                     format (Three letter day) YYYY-MM-DD.
+# ---------------------------------------------------------------------
+replace_placeholders() {
+    local template_file="$1"
+    local project_name="$2"
+    local extension="$3"
+    local file_name="$2.$extension"
+    local current_date
+    current_date=$(date "+%a %Y-%m-%d") # Get the current date in the desired format: (Three letter day) YYYY-MM-DD
+
+
+
+    # Perform the replacements
+    sed -e "s/{project_name}/$project_name/g" \
+        -e "s/{file_name}/$file_name/g" \
+        -e "s/DAY YYYY-MM-DD/$current_date/g" "$template_file" > "$file_name"
+}
+
+script_version="00.18"
 x=1
 language=""
 filename=""
@@ -136,88 +166,139 @@ done
 # bash files sections
 # -----------------------------
 if [ $language = "-b" ]; then
-    echo "getting: bash template -> $filename.sh"
-	cp /Users/patrik/Development/templates/bash.tpl $filename.sh
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -c option."
+        exit 1
+    fi
+
+	replace_placeholders "/Users/patrik/Development/templates/bash.tpl" "$filename" "sh"
+    echo "$filename.sh was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
 # c-Program section
 # -----------------------------
-if [ $language = "-c" ]; then
-    echo "getting: c template -> $filename.c"
-	cp /Users/patrik/Development/templates/c.tpl $filename.c
+if [ "$language" = "-c" ]; then
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -c option."
+        exit 1
+    fi
+
+    replace_placeholders "/Users/patrik/Development/templates/c.tpl" "$filename" "c"
+    echo "$filename.c was created with placeholders replaced in the acive folder."
 fi
+
 
 # -----------------------------
 # C\C++ Header section
 # -----------------------------
 if [ $language = "-h" ]; then
-    echo "getting: header template -> $filename.h"
-	cp /Users/patrik/Development/templates/h.tpl $filename.h
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -h option."
+        exit 1
+    fi
+
+	replace_placeholders "/Users/patrik/Development/templates/h.tpl" "$filename" "h"
+    echo "$filename.h was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
 # Makefile section
 # -----------------------------
 if [ $language = "-mf" ]; then
-    echo "getting: makefile template -> $filename.makefile"
-	cp /Users/patrik/Development/templates/makefile.tpl $filename.makefile
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -h option."
+        exit 1
+    fi
+	replace_placeholders "/Users/patrik/Development/templates/makefile.tpl" "$filename" "makefile"
+    echo "$filename.makefile was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
 # PHP section
 # -----------------------------
 if [ $language = "-php" ]; then
-    echo "getting: php template -> $filename.php"
-	cp /Users/patrik/Development/templates/php.tpl $filename.php
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -php option."
+        exit 1
+    fi
+    
+	replace_placeholders "/Users/patrik/Development/templates/php.tpl" "$filename" "php"
+    echo "$filename.php was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
 # Web-PHP section
 # -----------------------------
 if [ $language = "-wphp" ]; then
-    echo "getting: webphp template -> $filename.php"
-	cp /Users/patrik/Development/templates/www-php.tpl $filename.php
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -php option."
+        exit 1
+    fi
+
+	replace_placeholders "/Users/patrik/Development/templates/www-php.tpl" "$filename" "php"
+    echo "$filename.php was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
 # Python section
 # -----------------------------
 if [ $language = "-py" ]; then
-    echo "getting: python template -> $filename.py"
-	cp /Users/patrik/Development/templates/python.tpl $filename.py
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -py option."
+        exit 1
+    fi
+    
+	replace_placeholders "/Users/patrik/Development/templates/python.tpl" "$filename" "py"
+    echo "$filename.py was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
 # Java starter program section
 # -----------------------------
 if [ $language = "-cj" ]; then
-    echo "getting: c java template -> $filename.c"
-	cp /Users/patrik/Development/templates/c_java.tpl $filename.c
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -cj option."
+        exit 1
+    fi
+
+	replace_placeholders "/Users/patrik/Development/templates/c_java.tpl" "$filename" "c"
+    echo "$filename.c was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
 # Java starter script section
 # -----------------------------
 if [ $language = "-bj" ]; then
-    echo "getting: bash java template -> $filename.sh"
-	cp /Users/patrik/Development/templates/sh_java.tpl $filename.sh
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -bj option."
+        exit 1
+    fi
+
+	replace_placeholders "/Users/patrik/Development/templates/sh_java.tpl" "$filename" "sh"
+    echo "$filename.sh was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
 # Java Class section
 # -----------------------------
 if [ $language = "-j" ]; then
-    echo "getting: java_template -> $filename.java"
-	cp /Users/patrik/Development/templates/java.tpl $filename.java
+    if [ -z "$filename" ]; then
+        echo "Error: File name is required for -j option."
+        exit 1
+    fi
+
+	replace_placeholders "/Users/patrik/Development/templates/java.tpl" "$filename" "java"
+    echo "$filename.java was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
 # Classpath section
 # -----------------------------
 if [ $language = "-clsp" ]; then
-    echo "getting: classpath template -> classpath.txt"
-    cp /Users/patrik/Development/templates/classpath.tpl classpath.txt
+
+    replace_placeholders "/Users/patrik/Development/templates/classpath.tpl" "classpath" "txt"
+    echo "classpath.txt was created with placeholders replaced in the acive folder."
 fi
 
 
