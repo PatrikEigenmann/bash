@@ -38,6 +38,7 @@
 # Sun 2025-03-17 Added -clsp classpath template for java.               Version: 00.17
 # Sun 2025-03-17 Added -bj as a bash java starter .                     Version: 00.18
 # Sun 2025-03-17 Added placeholder replacement functionality.           Version: 00.19
+# Tue 2025-03-18 Added -jm as a jmake makefile.                         Version: 00.20
 # ************************************************************************************
 
 # ---------------------------------------------------------------------
@@ -89,7 +90,11 @@ display_help () {
     echo "          app in the working folder."
     echo " "
     echo "      -clsp"
-    echo "          Option -clsp to get a classpath template as a library list for"
+    echo "          Option -clsp to get a classpath template as a library list for a"
+    echo "          Java app in the working folder."
+    echo " "
+    echo "      -jm"
+    echo "          Option -jm to get a java makefile jmake for a"
     echo "          Java app in the working folder."
     echo " "
     echo "      \"-?\" or --help"
@@ -301,6 +306,14 @@ if [ $language = "-clsp" ]; then
     echo "classpath.txt was created with placeholders replaced in the acive folder."
 fi
 
+# -----------------------------
+# jmake section
+# -----------------------------
+if [ $language = "-jm" ]; then
+
+    replace_placeholders "/Users/patrik/Development/templates/jmake.tpl" "$filename" "jmake"
+    echo "$filename.jmake was created with placeholders replaced in the acive folder."
+fi
 
 # -----------------------------
 # Help section
