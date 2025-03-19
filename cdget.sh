@@ -325,7 +325,7 @@ fi
 # -----------------------------
 if [ $language = "-cfg" ]; then
 
-    replace_placeholders "/Users/patrik/Development/templates/config.tpl" "config.xml"
+    replace_placeholders "/Users/patrik/Development/templates/config.tpl" "config" "xml"
     echo "config.xml was created with placeholders replaced in the acive folder."
 fi
 
