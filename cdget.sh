@@ -39,6 +39,7 @@
 # Sun 2025-03-17 Added -bj as a bash java starter .                     Version: 00.18
 # Sun 2025-03-17 Added placeholder replacement functionality.           Version: 00.19
 # Tue 2025-03-18 Added -jm as a jmake makefile.                         Version: 00.20
+# Wed 2025-03-19 Added -cfg as a config.xml template.                   Version: 00.21
 # ************************************************************************************
 
 # ---------------------------------------------------------------------
@@ -97,6 +98,10 @@ display_help () {
     echo "          Option -jm to get a java makefile jmake for a"
     echo "          Java app in the working folder."
     echo " "
+    echo "      -cfg"
+    echo "          Option -cfg to get a config.xml for a Java or C# app"
+    echo "          in the working folder."
+    echo " "
     echo "      \"-?\" or --help"
     echo "          Option -? displays this help file. With calling the help file,"
     echo "          no other parameter are required!"
@@ -146,7 +151,7 @@ replace_placeholders() {
         -e "s/DAY YYYY-MM-DD/$current_date/g" "$template_file" > "$file_name"
 }
 
-script_version="00.18"
+script_version="00.21"
 x=1
 language=""
 filename=""
@@ -313,6 +318,15 @@ if [ $language = "-jm" ]; then
 
     replace_placeholders "/Users/patrik/Development/templates/jmake.tpl" "$filename" "jmake"
     echo "$filename.jmake was created with placeholders replaced in the acive folder."
+fi
+
+# -----------------------------
+# config.xml section
+# -----------------------------
+if [ $language = "-cfg" ]; then
+
+    replace_placeholders "/Users/patrik/Development/templates/config.tpl" "config.xml"
+    echo "config.xml was created with placeholders replaced in the acive folder."
 fi
 
 # -----------------------------
